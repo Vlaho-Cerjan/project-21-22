@@ -1,0 +1,561 @@
+$mb: 768px;
+$tb: 992px;
+$lb: 1200px;
+$db: 1600px;
+
+/*
+--------------- common ---------------
+*/
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  line-height: 0;
+
+  padding: var(--page-padding);
+}
+
+.pageComponent {
+  .pageComponentTitle {
+    display: block;
+    color: var(--text-color);
+    font-size: var(--24px);
+    line-height: 30px;
+    font-weight: 400;
+
+    >* {
+      line-height: 30px;
+    }
+
+    &.bold {
+      font-weight: 600;
+    }
+  }
+
+  .pageComponentDescription {
+    display: block;
+    color: var(--text-light);
+    font-size: var(--19px);
+    line-height: 22px;
+
+    >* {
+      line-height: 30px;
+    }
+
+    &.small {
+      font-size: var(--16px);
+      line-height: 20px;
+    }
+  }
+}
+
+.enterContainer {
+  display: none;
+
+  @media screen and (min-width: $mb) {
+    display: flex;
+  }
+}
+
+.inputControl {
+  overflow: hidden;
+
+  input {
+    font-size: clamp(var(--20px), 1.075rem + 0.8vw, 1.875rem);
+    width: 100%;
+    min-width: auto;
+    border: none;
+    border-bottom: 2px solid var(--text-grey);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: var(--text-color);
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: var(--text-placeholder);
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+
+    &.error {
+      border-bottom: 2px solid var(--red);
+      color: var(--red);
+
+      // shake animation
+      animation: shake 0.2s linear;
+    }
+  }
+}
+
+.formControl {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/*
+--------------- signup ---------------
+*/
+
+.signInContainer {
+
+  span {
+    font-size: var(--15px);
+    word-wrap: break-word;
+    color: var(--text-grey);
+    margin-right: 7px;
+    text-decoration: none;
+  }
+
+  .signInIcon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform var(--st-transition);
+
+    & svg {
+      z-index: 2;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      border-radius: 50%;
+      background-color: var(--divider-color);
+      opacity: 0;
+      transition: opacity var(--st-transition);
+    }
+
+    span {
+      transition: color var(--st-transition);
+    }
+  }
+
+  &:active,
+  &:focus {
+    span {
+      color: var(--text-color);
+      transition: color var(--st-transition);
+    }
+
+    .signInIcon::after {
+      opacity: 1;
+      transition: opacity var(--st-transition);
+    }
+  }
+
+  @media screen and (min-width: $tb) {
+    &:hover {
+      span {
+        color: var(--text-color);
+        transition: color var(--st-transition);
+      }
+
+      .signInIcon {
+        transform: translate3d(6px, 0, 0);
+      }
+
+      .signInIcon::after {
+        opacity: 1;
+        transition: opacity var(--st-transition);
+      }
+    }
+  }
+}
+
+.mainContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  min-width: 100vw;
+  min-width: calc(var(--vw, 1vw) * 100);
+  background-color: white;
+  display: grid;
+  grid-template-columns: 100% 0;
+  transition: grid-template var(--st-transition);
+
+  @media screen and (min-width: $tb) {
+    grid-template-columns: 69% 31%;
+    transition: grid-template var(--st-transition);
+  }
+
+  @media screen and (min-width: $lb) {
+    grid-template-columns: 60% 40%;
+    transition: grid-template var(--st-transition);
+  }
+
+  @media screen and (min-width: 1362px) {
+    grid-template-columns: 50% 50%;
+    transition: grid-template var(--st-transition);
+  }
+
+  @media screen and (min-width: 1600px) {
+    grid-template-columns: 800px auto;
+    transition: grid-template var(--st-transition);
+  }
+}
+
+.imgContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @media screen and (min-width: $tb) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    height: 100%;
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  //min-height: 100vh;
+  //min-height: calc(var(--vh, 1vh) * 100);
+
+  @media screen and (min-width: $tb) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+}
+
+.childContainer {
+  //width: 100%;
+  //height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .pageContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pageContainer.signInSlider {
+    .pageComponent {
+      padding: 36px var(--px) 0;
+
+      & .description {
+        margin-top: 12px;
+      }
+
+      & .signInSliderInputContainer {
+        margin-top: 12px;
+      }
+    }
+
+    #signInSlider {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    #signInSlider .swiper-slide {
+      display: flex;
+
+      @media screen and (min-width: $mb) {
+        align-items: center;
+      }
+    }
+
+    @media screen and (min-width: $mb) {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .pageComponent {
+        padding: 0 12vw;
+      }
+    }
+
+    @media screen and (min-width: $tb) {
+      .pageComponent {
+        padding: 0 5vw;
+      }
+    }
+
+    @media screen and (min-width: $lb) {
+      .pageComponent {
+        padding: 0 6.76vw;
+      }
+    }
+
+    @media screen and (min-width: $db) {
+      .pageComponent {
+        padding: 0 108px;
+      }
+    }
+  }
+
+  .pageContainer:not(.signInSlider) {
+    .pageComponent {
+      @media screen and (min-width: $mb) {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        >div {
+          height: auto;
+        }
+      }
+
+      @media screen and (min-width: $tb) {
+        >div {
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+
+.logo svg {
+  width: 165px;
+  height: 25px;
+}
+
+.signUpButtonsContainers {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+
+  & .backButtonContainer {
+    width: 0;
+    overflow: hidden;
+
+    transition: width 350ms var(--st-bezier);
+  }
+
+  &.backActive .backButtonContainer {
+    width: 92px;
+    overflow: unset;
+    margin-right: 8px;
+
+    & .backButton {
+      padding: 10px 16px;
+      min-height: 36px;
+      font-size: var(--16px);
+    }
+  }
+}
+
+.eyeContainer.signInEyeContainer {
+  & svg {
+    width: auto;
+    height: 24px;
+
+    @media screen and (min-width: $mb) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.footer {
+  bottom: 0;
+  padding: var(--page-padding);
+  left: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+
+  @media screen and (min-width: $mb) {
+    padding: var(--page-padding);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .text {
+      line-height: 30px;
+    }
+  }
+}
+
+.arrowButtonsContainer {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--pt);
+  position: relative;
+
+  & .pageNumberContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  & .leftArrow {
+    margin-right: 12px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: var(--px-neg);
+    width: calc(100% + 2 * var(--px));
+    height: 100%;
+    box-shadow: var(--medium-shdw);
+  }
+
+  @media screen and (min-width: $mb) {
+    height: auto;
+    box-shadow: none;
+    margin-top: 0;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      display: none;
+    }
+
+    & .arrowButton {
+      height: auto;
+
+      & svg {
+        width: auto;
+        height: 24px;
+      }
+    }
+
+    & .leftArrow {
+      margin-right: 20px;
+      margin-left: 24px;
+    }
+  }
+
+  @media screen and (min-width: $tb) {
+    margin-left: 20px;
+    flex-shrink: 0;
+  }
+}
+
+.pageContainer {
+  //overflow: hidden;
+  height: 100%;
+
+  >div {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+  }
+
+  .pageComponentWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .pageComponent {
+    flex: 1 1 100%;
+
+    @media screen and (min-width: $mb) {}
+
+    @media screen and (min-width: $tb) {}
+  }
+
+  & .modalSelectControl {
+    padding: 12px 0;
+    background: transparent;
+    border-bottom: 2px solid black;
+    border-radius: 0;
+
+    & select {
+      font-size: clamp(var(--20px), 1.075rem + 0.8vw, 1.875rem);
+      line-height: 1.15;
+    }
+  }
+
+  & .modalPhoneControl {
+    padding: 12px 0;
+    background: transparent;
+    border-bottom: 2px solid black;
+    border-radius: 0;
+
+    & input,
+    & button {
+      font-size: clamp(var(--20px), 1.075rem + 0.8vw, 1.875rem);
+      line-height: 1.15;
+    }
+  }
+
+  & .iti__arrow {
+    margin-left: 6px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--iti-arrow-color);
+  }
+
+  & .inputFuzzyIcon {
+    top: calc(50% - 12px);
+  }
+}
+
+.counterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputErrorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 0;
+  overflow: hidden;
+  transition: height var(--st-transition);
+
+  &.active {
+    height: 42px;
+  }
+
+  & .inputError {
+    padding-top: 20px;
+    color: var(--red);
+    font-size: var(--15px);
+    line-height: 22px;
+  }
+}
+
+.useAccountDetailsContainer {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.checkmarkTitle {
+  color: var(--text-grey);
+}

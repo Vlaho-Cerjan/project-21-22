@@ -1,0 +1,225 @@
+.mainContainer.landingMainContainer {
+  width: 100%;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*
+  & .registrationContainer {
+    background: url('/assets/images/landing/landing3.png');
+  }
+
+  & .resetPasswordContainer {
+    background: url('/assets/images/landing/landing1.png');
+  }
+
+  & .createPasswordContainer {
+    //background: url('/assets/images/landing/landing2.png');
+  }
+
+  & .emailVerifiedContainer {
+    background: url('/assets/images/landing/landing2.png');
+  }
+
+  & .phoneVerifiedContainer {
+    background: url('/assets/images/landing/landing4.png');
+  }
+  */
+}
+.mainContainer.landingMainContainer .mainContentContainer {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--divider-color);
+  padding: var(--page-padding);
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer.landingMainContainer .mainContentContainer .contentWrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainContainer.landingMainContainer .registrationContainer,
+.mainContainer.landingMainContainer .resetPasswordContainer,
+.mainContainer.landingMainContainer .createPasswordContainer,
+.mainContainer.landingMainContainer .emailVerifiedContainer,
+.mainContainer.landingMainContainer .phoneVerifiedContainer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.mainContainer.landingMainContainer .headerContainer {
+  width: 100%;
+  padding: var(--page-padding);
+  background-color: #fff;
+}
+.mainContainer.landingMainContainer .headerContainer .logo svg {
+  width: 165px;
+  height: 25px;
+}
+.mainContainer.landingMainContainer .headerContainer .headerWrapper {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.landingModal .modalWrapper {
+  flex-grow: 1;
+}
+.landingModal .modalContent {
+  min-width: auto;
+  min-height: auto;
+  display: flex;
+  border-radius: 18px !important;
+  flex-direction: column;
+}
+.landingModal .modalHeader {
+  text-align: center;
+}
+.landingModal .modalHeader .title {
+  font-size: 24px;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .landingModal .modalHeader .title {
+    font-size: 36px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .landingModal .modalHeader .title {
+    font-size: 50px;
+  }
+}
+.landingModal .content {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+@media screen and (min-width: 768px) {
+  .landingModal .content {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .landingModal .content {
+    font-size: 18px;
+  }
+}
+.landingModal .landingLink {
+  font-size: inherit;
+  font-weight: 500;
+  color: var(--button-primary);
+  text-decoration: underline;
+}
+.landingModal .modalFooter {
+  justify-content: center;
+}
+@media screen and (min-width: 400px) {
+  .landingModal .modalHeader, .landingModal .content, .landingModal .modalFooter {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .landingModal .modalHeader:first-child, .landingModal .content:first-child, .landingModal .modalFooter:first-child {
+    padding-top: 30px;
+  }
+  .landingModal .modalHeader:last-child, .landingModal .content:last-child, .landingModal .modalFooter:last-child {
+    padding-bottom: 40px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .landingModal .modalHeader, .landingModal .content, .landingModal .modalFooter {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .landingModal .modalHeader:first-child, .landingModal .content:first-child, .landingModal .modalFooter:first-child {
+    padding-top: 50px;
+  }
+  .landingModal .modalHeader:last-child, .landingModal .content:last-child, .landingModal .modalFooter:last-child {
+    padding-bottom: 70px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .landingModal .modalHeader, .landingModal .content, .landingModal .modalFooter {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  .landingModal .modalHeader:first-child, .landingModal .content:first-child, .landingModal .modalFooter:first-child {
+    padding-top: 70px;
+  }
+  .landingModal .modalHeader:last-child, .landingModal .content:last-child, .landingModal .modalFooter:last-child {
+    padding-bottom: 90px;
+  }
+}
+.landingModal.passwordReset .descriptionContent, .landingModal.passwordCreate .descriptionContent {
+  padding-top: 0;
+}
+.landingModal.passwordReset .descriptionContent p, .landingModal.passwordCreate .descriptionContent p {
+  max-width: 320px;
+}
+@media screen and (min-width: 400px) {
+  .landingModal.passwordReset .modalHeader, .landingModal.passwordReset .content, .landingModal.passwordReset .modalFooter, .landingModal.passwordCreate .modalHeader, .landingModal.passwordCreate .content, .landingModal.passwordCreate .modalFooter {
+    padding-left: var(--px);
+    padding-right: var(--px);
+  }
+  .landingModal.passwordReset .modalHeader:first-child, .landingModal.passwordReset .content:first-child, .landingModal.passwordReset .modalFooter:first-child, .landingModal.passwordCreate .modalHeader:first-child, .landingModal.passwordCreate .content:first-child, .landingModal.passwordCreate .modalFooter:first-child {
+    padding-top: var(--mod-pt);
+  }
+  .landingModal.passwordReset .modalHeader:last-child, .landingModal.passwordReset .content:last-child, .landingModal.passwordReset .modalFooter:last-child, .landingModal.passwordCreate .modalHeader:last-child, .landingModal.passwordCreate .content:last-child, .landingModal.passwordCreate .modalFooter:last-child {
+    padding-bottom: var(--mod-pb);
+  }
+}
+@media screen and (min-width: 768px) {
+  .landingModal.passwordReset .modalHeader, .landingModal.passwordReset .content, .landingModal.passwordReset .modalFooter, .landingModal.passwordCreate .modalHeader, .landingModal.passwordCreate .content, .landingModal.passwordCreate .modalFooter {
+    padding-left: var(--px);
+    padding-right: var(--px);
+  }
+  .landingModal.passwordReset .modalHeader:first-child, .landingModal.passwordReset .content:first-child, .landingModal.passwordReset .modalFooter:first-child, .landingModal.passwordCreate .modalHeader:first-child, .landingModal.passwordCreate .content:first-child, .landingModal.passwordCreate .modalFooter:first-child {
+    padding-top: var(--mod-pt);
+  }
+  .landingModal.passwordReset .modalHeader:last-child, .landingModal.passwordReset .content:last-child, .landingModal.passwordReset .modalFooter:last-child, .landingModal.passwordCreate .modalHeader:last-child, .landingModal.passwordCreate .content:last-child, .landingModal.passwordCreate .modalFooter:last-child {
+    padding-bottom: var(--mod-pb);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .landingModal.passwordReset .modalHeader, .landingModal.passwordReset .content, .landingModal.passwordReset .modalFooter, .landingModal.passwordCreate .modalHeader, .landingModal.passwordCreate .content, .landingModal.passwordCreate .modalFooter {
+    padding-left: var(--px);
+    padding-right: var(--px);
+  }
+  .landingModal.passwordReset .modalHeader:first-child, .landingModal.passwordReset .content:first-child, .landingModal.passwordReset .modalFooter:first-child, .landingModal.passwordCreate .modalHeader:first-child, .landingModal.passwordCreate .content:first-child, .landingModal.passwordCreate .modalFooter:first-child {
+    padding-top: var(--mod-pt);
+  }
+  .landingModal.passwordReset .modalHeader:last-child, .landingModal.passwordReset .content:last-child, .landingModal.passwordReset .modalFooter:last-child, .landingModal.passwordCreate .modalHeader:last-child, .landingModal.passwordCreate .content:last-child, .landingModal.passwordCreate .modalFooter:last-child {
+    padding-bottom: var(--mod-pb);
+  }
+}
+
+.landingModal .modalContent .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.landingModal .modalContent .content .formControl {
+  max-width: 320px;
+  text-align: start;
+}
+
+.imageAbsoluteContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=landing.css.map */

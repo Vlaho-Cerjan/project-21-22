@@ -1,0 +1,59 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "search.exclude": {
+    "package-lock.json": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.removeUnusedImports": "explicit",
+    "source.fixAll": "always"
+  },
+  // Multiple language settings for json and jsonc files
+  "[json][jsonc][yaml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.ignorePath": ".gitignore",
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBorder": "#9fced11f"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "cSpell.words": [
+    "Callum",
+    "dooh",
+    "FIRESTICK",
+    "GMAPS",
+    "googlemaps",
+    "icons",
+    "Margaritaville",
+    "mccallum",
+    "reggaeton",
+    "shdw",
+    "signup",
+    "smakss",
+    "socal",
+    "subnav",
+    "Swiper",
+    "testid",
+    "trackpad",
+    "unoptimized",
+    "usehooks"
+  ],
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "prettier.configPath": ".prettierrc",
+  "vitest.commandLine": "npx vitest"
+}

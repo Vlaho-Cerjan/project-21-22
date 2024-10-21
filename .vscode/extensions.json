@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "mikestead.dotenv",
+    "csstools.postcss",
+    "orta.vscode-jest",
+    "yoavbls.pretty-ts-errors",
+    "nathhorrigan.code-svgr"
+  ]
+}

@@ -1,0 +1,489 @@
+/*
+--------------- common ---------------
+*/
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 0;
+  padding: var(--page-padding);
+}
+
+.pageComponent .pageComponentTitle {
+  display: block;
+  color: var(--text-color);
+  font-size: var(--24px);
+  line-height: 30px;
+  font-weight: 400;
+}
+.pageComponent .pageComponentTitle > * {
+  line-height: 30px;
+}
+.pageComponent .pageComponentTitle.bold {
+  font-weight: 600;
+}
+.pageComponent .pageComponentDescription {
+  display: block;
+  color: var(--text-light);
+  font-size: var(--19px);
+  line-height: 22px;
+}
+.pageComponent .pageComponentDescription > * {
+  line-height: 30px;
+}
+.pageComponent .pageComponentDescription.small {
+  font-size: var(--16px);
+  line-height: 20px;
+}
+
+.enterContainer {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .enterContainer {
+    display: flex;
+  }
+}
+
+.inputControl {
+  overflow: hidden;
+}
+.inputControl input {
+  font-size: clamp(var(--20px), 1.075rem + 0.8vw, 1.875rem);
+  width: 100%;
+  min-width: auto;
+  border: none;
+  border-bottom: 2px solid var(--text-grey);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: var(--text-color);
+}
+.inputControl input:focus {
+  outline: none;
+}
+.inputControl input::-moz-placeholder {
+  color: var(--text-placeholder);
+}
+.inputControl input::placeholder {
+  color: var(--text-placeholder);
+}
+.inputControl input:focus::-moz-placeholder {
+  color: transparent;
+}
+.inputControl input:focus::placeholder {
+  color: transparent;
+}
+.inputControl input.error {
+  border-bottom: 2px solid var(--red);
+  color: var(--red);
+  animation: shake 0.2s linear;
+}
+
+.formControl {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/*
+--------------- signup ---------------
+*/
+.signInContainer span {
+  font-size: var(--15px);
+  word-wrap: break-word;
+  color: var(--text-grey);
+  margin-right: 7px;
+  text-decoration: none;
+}
+.signInContainer .signInIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform var(--st-transition);
+}
+.signInContainer .signInIcon svg {
+  z-index: 2;
+}
+.signInContainer .signInIcon::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  border-radius: 50%;
+  background-color: var(--divider-color);
+  opacity: 0;
+  transition: opacity var(--st-transition);
+}
+.signInContainer .signInIcon span {
+  transition: color var(--st-transition);
+}
+.signInContainer:active span, .signInContainer:focus span {
+  color: var(--text-color);
+  transition: color var(--st-transition);
+}
+.signInContainer:active .signInIcon::after, .signInContainer:focus .signInIcon::after {
+  opacity: 1;
+  transition: opacity var(--st-transition);
+}
+@media screen and (min-width: 992px) {
+  .signInContainer:hover span {
+    color: var(--text-color);
+    transition: color var(--st-transition);
+  }
+  .signInContainer:hover .signInIcon {
+    transform: translate3d(6px, 0, 0);
+  }
+  .signInContainer:hover .signInIcon::after {
+    opacity: 1;
+    transition: opacity var(--st-transition);
+  }
+}
+
+.mainContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  min-width: 100vw;
+  min-width: calc(var(--vw, 1vw) * 100);
+  background-color: white;
+  display: grid;
+  grid-template-columns: 100% 0;
+  transition: grid-template var(--st-transition);
+}
+@media screen and (min-width: 992px) {
+  .mainContainer {
+    grid-template-columns: 69% 31%;
+    transition: grid-template var(--st-transition);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .mainContainer {
+    grid-template-columns: 60% 40%;
+    transition: grid-template var(--st-transition);
+  }
+}
+@media screen and (min-width: 1362px) {
+  .mainContainer {
+    grid-template-columns: 50% 50%;
+    transition: grid-template var(--st-transition);
+  }
+}
+@media screen and (min-width: 1600px) {
+  .mainContainer {
+    grid-template-columns: 800px auto;
+    transition: grid-template var(--st-transition);
+  }
+}
+
+.imgContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.imgContainer img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+@media screen and (min-width: 992px) {
+  .imgContainer {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    height: 100%;
+  }
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 992px) {
+  .contentContainer {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+}
+
+.childContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.childContainer .pageContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.childContainer .pageContainer.signInSlider .pageComponent {
+  padding: 36px var(--px) 0;
+}
+.childContainer .pageContainer.signInSlider .pageComponent .description {
+  margin-top: 12px;
+}
+.childContainer .pageContainer.signInSlider .pageComponent .signInSliderInputContainer {
+  margin-top: 12px;
+}
+.childContainer .pageContainer.signInSlider #signInSlider {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.childContainer .pageContainer.signInSlider #signInSlider .swiper-slide {
+  display: flex;
+}
+@media screen and (min-width: 768px) {
+  .childContainer .pageContainer.signInSlider #signInSlider .swiper-slide {
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .childContainer .pageContainer.signInSlider {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .childContainer .pageContainer.signInSlider .pageComponent {
+    padding: 0 12vw;
+  }
+}
+@media screen and (min-width: 992px) {
+  .childContainer .pageContainer.signInSlider .pageComponent {
+    padding: 0 5vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .childContainer .pageContainer.signInSlider .pageComponent {
+    padding: 0 6.76vw;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .childContainer .pageContainer.signInSlider .pageComponent {
+    padding: 0 108px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .childContainer .pageContainer:not(.signInSlider) .pageComponent {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .childContainer .pageContainer:not(.signInSlider) .pageComponent > div {
+    height: auto;
+  }
+}
+@media screen and (min-width: 992px) {
+  .childContainer .pageContainer:not(.signInSlider) .pageComponent > div {
+    overflow: hidden;
+  }
+}
+
+.logo svg {
+  width: 165px;
+  height: 25px;
+}
+
+.signUpButtonsContainers {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+}
+.signUpButtonsContainers .backButtonContainer {
+  width: 0;
+  overflow: hidden;
+  transition: width 350ms var(--st-bezier);
+}
+.signUpButtonsContainers.backActive .backButtonContainer {
+  width: 92px;
+  overflow: unset;
+  margin-right: 8px;
+}
+.signUpButtonsContainers.backActive .backButtonContainer .backButton {
+  padding: 10px 16px;
+  min-height: 36px;
+  font-size: var(--16px);
+}
+
+.eyeContainer.signInEyeContainer svg {
+  width: auto;
+  height: 24px;
+}
+@media screen and (min-width: 768px) {
+  .eyeContainer.signInEyeContainer svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.footer {
+  bottom: 0;
+  padding: var(--page-padding);
+  left: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: var(--page-padding);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer .text {
+    line-height: 30px;
+  }
+}
+
+.arrowButtonsContainer {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--pt);
+  position: relative;
+}
+.arrowButtonsContainer .pageNumberContainer {
+  display: flex;
+  align-items: center;
+}
+.arrowButtonsContainer .leftArrow {
+  margin-right: 12px;
+}
+.arrowButtonsContainer::after {
+  content: "";
+  position: absolute;
+  left: var(--px-neg);
+  width: calc(100% + 2 * var(--px));
+  height: 100%;
+  box-shadow: var(--medium-shdw);
+}
+@media screen and (min-width: 768px) {
+  .arrowButtonsContainer {
+    height: auto;
+    box-shadow: none;
+    margin-top: 0;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .arrowButtonsContainer::after {
+    display: none;
+  }
+  .arrowButtonsContainer .arrowButton {
+    height: auto;
+  }
+  .arrowButtonsContainer .arrowButton svg {
+    width: auto;
+    height: 24px;
+  }
+  .arrowButtonsContainer .leftArrow {
+    margin-right: 20px;
+    margin-left: 24px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .arrowButtonsContainer {
+    margin-left: 20px;
+    flex-shrink: 0;
+  }
+}
+
+.pageContainer {
+  height: 100%;
+}
+.pageContainer > div {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+.pageContainer .pageComponentWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 100%;
+}
+.pageContainer .pageComponent {
+  flex: 1 1 100%;
+}
+.pageContainer .modalSelectControl {
+  padding: 12px 0;
+  background: transparent;
+  border-bottom: 2px solid black;
+  border-radius: 0;
+}
+.pageContainer .modalSelectControl select {
+  font-size: clamp(var(--20px), 1.075rem + 0.8vw, 1.875rem);
+  line-height: 1.15;
+}
+.pageContainer .modalPhoneControl {
+  padding: 12px 0;
+  background: transparent;
+  border-bottom: 2px solid black;
+  border-radius: 0;
+}
+.pageContainer .modalPhoneControl input, .pageContainer .modalPhoneControl button {
+  font-size: clamp(var(--20px), 1.075rem + 0.8vw, 1.875rem);
+  line-height: 1.15;
+}
+.pageContainer .iti__arrow {
+  margin-left: 6px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--iti-arrow-color);
+}
+.pageContainer .inputFuzzyIcon {
+  top: calc(50% - 12px);
+}
+
+.counterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputErrorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 0;
+  overflow: hidden;
+  transition: height var(--st-transition);
+}
+.inputErrorContainer.active {
+  height: 42px;
+}
+.inputErrorContainer .inputError {
+  padding-top: 20px;
+  color: var(--red);
+  font-size: var(--15px);
+  line-height: 22px;
+}
+
+.useAccountDetailsContainer {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.checkmarkTitle {
+  color: var(--text-grey);
+}/*# sourceMappingURL=signup.css.map */
